@@ -1,0 +1,22 @@
+{% extends 'header.html' %}
+
+{% block title %}Statement{% endblock title %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">User Loan Statement</h1>
+      <p class="lead">Get all the loan statement based on loan id</p>
+      <form method="get" action="/api/get-statement/">
+        <!-- {% csrf_token %} -->
+            <div class="form-group">
+                <label for="loan_id">Loan Id</label>
+                <input type="text" class="form-control" id="loan_id" name="loan_id" placeholder="Enter Loan Id">
+            </div> 
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+  </div>
+
+{% endblock body %}

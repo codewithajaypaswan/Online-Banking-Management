@@ -1,0 +1,35 @@
+{% extends 'header.html' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Register User</h1>
+      <p class="lead">Register with the best bank loan services</p>
+      <form method="post" action="/api/register-user">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+            </div>
+            
+            <div class="form-group">
+                <label for="annual_income">Annual Income</label>
+                <input type="text" class="form-control" id="annual_income" name="annual_income" placeholder="Enter Your Annual Income">
+            </div>      
+            <div class="form-group">
+                <label for="aadhar_id">Aadhar Number</label>
+                <input type="text" class="form-control" id="aadhar_id" name="aadhar_id" placeholder="Enter Your Aadhar Number">
+            </div>  
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+  </div>
+
+{% endblock body %}

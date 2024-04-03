@@ -1,0 +1,3 @@
+1. create home page -- pending
+2. create register page -- pending
+3. create UI -- pending

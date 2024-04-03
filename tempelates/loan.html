@@ -1,0 +1,45 @@
+{% extends 'header.html' %}
+
+{% block title %}Apply Loan{% endblock title %}
+
+{% block body %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Apply Loan</h1>
+      <p class="lead">Take an instant loan based on your credit score</p>
+      <form method="post" action="/api/apply-loan">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="unique_user_id">User Id</label>
+                <input type="text" class="form-control" id="unique_user_id" name="unique_user_id" placeholder="Enter your User Id">
+            </div>
+            <div class="form-group">
+                <label for="loan_type">Loan Type</label>
+                <select class="form-control" id="loan_type" name="loan_type">
+                    {% for loan_type in supported_loan_types %}
+                        <option>{{ loan_type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="loan_amount">Loan Amount</label>
+                <input type="text" class="form-control" id="loan_amount" name="loan_amount" placeholder="Enter Your Loan Amount">
+            </div>     
+            <div class="form-group">
+                <label for="interest_rate">Interest Rate</label>
+                <input type="text" class="form-control" id="interest_rate" name="interest_rate" placeholder="Enter Interest Rate">
+            </div>      
+            <div class="form-group">
+                <label for="term_period">Term Period</label>
+                <input type="text" class="form-control" id="term_period" name="term_period" placeholder="Enter Term Period">
+            </div> 
+            <div class="form-group">
+                <label for="disbursement_date">Disbursement Date</label>
+                <input type="date" class="form-control" id="disbursement_date" name="disbursement_date">
+            </div>  
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock body %}

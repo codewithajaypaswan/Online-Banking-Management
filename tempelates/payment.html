@@ -1,0 +1,32 @@
+{% extends 'header.html' %}
+
+{% block title %}Make Payment{% endblock title %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Make Payment</h1>
+      <p class="lead">Easy, Safe and Secure online Payment of your loan</p>
+      <form method="post" action="/api/make-payment">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="loan_id">Loan Id</label>
+                <input type="text" class="form-control" id="loan_id" name="loan_id" placeholder="Enter Loan Id">
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter Amount">
+            </div>
+            
+            <div class="form-group">
+                <label for="payment_date">Payment Date</label>
+                <input type="date" class="form-control" id="payment_date" name="payment_date">
+            </div>      
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+  </div>
+
+{% endblock body %}
