@@ -34,7 +34,6 @@ def register_user(request):
 
 @api_view(['POST'])
 def apply_loan(request):
-    # HttpResponse("this is loan page")
     django_request = request._request
     response = user_apply_loan(django_request)
     return response
@@ -49,6 +48,5 @@ def make_payment(request):
 def get_statement(request):
     if request.method == 'GET':
         django_request = request._request
-        print(request)
         response = get_user_statement(django_request)
         return response
